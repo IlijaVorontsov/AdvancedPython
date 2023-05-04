@@ -5,8 +5,8 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "Hello, World!"
+def test():
+    return "Test"
 
 # start the development server using the run() method
 if __name__ == "__main__":
