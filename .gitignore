@@ -1,5 +1,5 @@
 bin
 include
 lib
-.DS_Store
 pyvenv.cfg
+.DS_Store
