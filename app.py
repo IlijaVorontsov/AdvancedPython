@@ -13,7 +13,7 @@ class User:
     def check_password(self, password):
         return self.__password == password
     
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.method == 'POST':
@@ -38,11 +38,11 @@ def login():
         if username in users:
             user = users[username]
             if user.check_password(password):
-                return f'User {username} logged in'
+                return render_template('login.html', message=f'User {username} logged in')
             else:
-                return 'Wrong password'
+                return render_template('login.html', message='Wrong password')
         else:
-            return 'User not found'
+            return render_template('login.html', message='User does not exist')
     return render_template('login.html')
 
 @app.route('/users')
